@@ -3,10 +3,27 @@
   <head>
     <title>MacGregor Public Witnessing - Guidelines</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />      
+    <meta name="viewport" content="width=device-width, initial-scale=1" />  
+    <style>
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   </head>
   <body style="margin:0px;padding:0px;overflow:hidden">
-    <iframe src="https://docs.google.com/document/d/1NIBAHnvfgFZ5NAgiZ0HxB-YS0h8oKbuXWm7MRvn3XMY/pub?embedded=true"  width="100%" style="height: 100vh;" >Loading Document...</iframe>
+    <iframe src="" width="95%" frameborder="0" style="height: 94vh;  margin-left: 5vw; margin-top: 5vh; margin-right: 5vw; margin-bottom:5vw;">Loading Document...</iframe> 
+<script>
+    $(function() {
+        $.get("https://docs.google.com/document/d/1NIBAHnvfgFZ5NAgiZ0HxB-YS0h8oKbuXWm7MRvn3XMY/pub?embedded=true", function(html) {
+            var contents = $("iframe").contents();
+
+            contents.find("html").html(html);
+
+            setTimeout(function() {
+                contents.find('a[href^="http://"]').attr("target", "_blank");
+                contents.find('a[href^="https://"]').attr("target", "_blank");
+            }, 1000); // Actually not sure if timeout is required here...
+        });
+    });
+</script>
   </body>
 </html>
   
